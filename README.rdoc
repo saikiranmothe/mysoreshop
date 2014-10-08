@@ -1,4 +1,10 @@
-== README  --- http://eangadi.herokuapp.com/
+== README  --- http://eangadi.herokuapp.com/admin
+*email/username: admin@admin.com
+*password: password
+
+*email/username: admin@eangadi.com
+*password: password
+
 
 *This is a sample e-commerce application.
 
