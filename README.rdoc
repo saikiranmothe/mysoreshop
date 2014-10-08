@@ -1,26 +1,25 @@
 == README
 
-This is a sample e-commerce application.
+*This is a sample e-commerce application.
 
-I have used Rails spree engine.Spree engine provides all e-commerce platform components together.Its a end-to-end soultion for e-commerce platform.
+*I have used Rails spree engine.Spree engine provides all e-commerce platform components together.Its a end-to-end soultion for e-commerce platform.
 
 
-In Spree engine,they used active mearchant easily we can integrate payment gateways also with fingertip.
+*In Spree engine,they used active mearchant easily we can integrate payment gateways also with fingertip.
 
-###Before that i have written a rails application template to setup/run e-commerce application in minutes.
+* Before that i have written a rails application template to setup/run e-commerce application in minutes.
 
-####Pre-Requisites
+* Pre-Requisites
 * Ruby - 2.0.0-p247
 * Rails - 4.1.6
 * sqlite3
 
-#####Lets run/setup e-commerce platform.
+*Lets run/setup e-commerce platform.
 
-```ruby
-	#this application template for rails4 && spree 2.3.X
-	rails new eshopname -m  https://gist.githubusercontent.com/saikiranmothe/38c6bf2e5865d1d1fce9/raw/a0c4c1bcdf67646d3e9aa30aa8c3ce7afe32e263/rails4_spree_template.rb
-	rails server
-```
+* #this application template for rails4 && spree 2.3.X
+*	rails new eshopname -m  https://gist.githubusercontent.com/saikiranmothe/38c6bf2e5865d1d1fce9/raw/a0c4c1bcdf67646d3e9aa30aa8c3ce7afe32e263/rails4_spree_template.rb
+*	rails server
+
 
 Some References for Spree(Rails Engine)
 =========================
@@ -36,5 +35,5 @@ Some References for Spree(Rails Engine)
 * ...
 
 
-Please feel free to contact me and ping me if you stuck up anywhere -- saikiran.mothe@gmail.com
+* Please feel free to contact me and ping me if you stuck up anywhere -- saikiran.mothe@gmail.com
 
