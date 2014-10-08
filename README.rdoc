@@ -14,12 +14,13 @@
 * Rails - 4.1.6
 * sqlite3
 
-*Lets run/setup e-commerce platform.
+<h1>Lets run/setup e-commerce platform</h1>
 
-* #this application template for rails4 && spree 2.3.X
-*	rails new eshopname -m  https://gist.githubusercontent.com/saikiranmothe/38c6bf2e5865d1d1fce9/raw/a0c4c1bcdf67646d3e9aa30aa8c3ce7afe32e263/rails4_spree_template.rb
-*	rails server
-
+```ruby
+	* #this application template for rails4 && spree 2.3.X
+	*	rails new eshopname -m  https://gist.githubusercontent.com/saikiranmothe/38c6bf2e5865d1d1fce9/raw/a0c4c1bcdf67646d3e9aa30aa8c3ce7afe32e263/rails4_spree_template.rb
+	*	rails server
+```
 
 Some References for Spree(Rails Engine)
 =========================
