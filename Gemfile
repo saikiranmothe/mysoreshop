@@ -27,6 +27,7 @@ gem 'sdoc', '~> 0.4.0',          group: :doc
 # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
 gem 'spring',        group: :development
 
+gem 'thin'
 gem 'passenger'
 gem 'rails_12factor'
 
@@ -43,3 +44,6 @@ gem 'spree_static_content', github: 'spree/spree_static_content', branch: '2-3-s
 
 #subdomain
 gem 'spree_multi_domain', git: 'git://github.com/spree/spree-multi-domain.git',branch: '2-3-stable'
+
+#social buttons
+gem "spree_social_products", :git => "git://github.com/spree/spree_social_products.git",branch: '2-3-stable'
