@@ -29,19 +29,17 @@ gem 'spring',        group: :development
 
 gem 'passenger'
 gem 'rails_12factor'
-# Use ActiveModel has_secure_password
-# gem 'bcrypt', '~> 3.1.7'
 
-# Use unicorn as the app server
-# gem 'unicorn'
-
-# Use Capistrano for deployment
-# gem 'capistrano-rails', group: :development
-
-# Use debugger
-# gem 'debugger', group: [:development, :test]
-
-
+#spree gems
 gem "spree", github: "spree/spree", branch: "2-3-stable"
 gem "spree_gateway", git: "https://github.com/spree/spree_gateway.git", branch: "2-3-stable"
 gem "spree_auth_devise", github: "spree/spree_auth_devise", branch: "2-3-stable"
+
+#spree fancy theme extension
+gem 'spree_fancy', :github => 'spree/spree_fancy', :branch => '2-3-stable'
+
+#for shop static content
+gem 'spree_static_content', github: 'spree/spree_static_content', branch: '2-3-stable'
+
+#subdomain
+gem 'spree_multi_domain', git: 'git://github.com/spree/spree-multi-domain.git',branch: '2-3-stable'

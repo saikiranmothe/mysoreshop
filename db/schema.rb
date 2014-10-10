@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141008094375) do
+ActiveRecord::Schema.define(version: 20141010064038) do
 
   create_table "spree_addresses", force: true do |t|
     t.string   "firstname"
@@ -258,6 +258,7 @@ ActiveRecord::Schema.define(version: 20141008094375) do
     t.boolean  "confirmation_delivered",                                     default: false
     t.boolean  "considered_risky",                                           default: false
     t.string   "guest_token"
+    t.integer  "store_id"
   end
 
   add_index "spree_orders", ["approver_id"], name: "index_spree_orders_on_approver_id"
@@ -278,6 +279,27 @@ ActiveRecord::Schema.define(version: 20141008094375) do
   end
 
   add_index "spree_orders_promotions", ["order_id", "promotion_id"], name: "index_spree_orders_promotions_on_order_id_and_promotion_id"
+
+  create_table "spree_pages", force: true do |t|
+    t.string   "title"
+    t.text     "body"
+    t.string   "slug"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.boolean  "show_in_header",           default: false, null: false
+    t.boolean  "show_in_footer",           default: false, null: false
+    t.string   "foreign_link"
+    t.integer  "position",                 default: 1,     null: false
+    t.boolean  "visible",                  default: true
+    t.string   "meta_keywords"
+    t.string   "meta_description"
+    t.string   "layout"
+    t.boolean  "show_in_sidebar",          default: false, null: false
+    t.string   "meta_title"
+    t.boolean  "render_layout_as_partial", default: false
+  end
+
+  add_index "spree_pages", ["slug"], name: "index_spree_pages_on_slug"
 
   create_table "spree_payment_capture_events", force: true do |t|
     t.decimal  "amount",     precision: 10, scale: 2, default: 0.0
@@ -398,6 +420,14 @@ ActiveRecord::Schema.define(version: 20141008094375) do
   add_index "spree_products_promotion_rules", ["product_id"], name: "index_products_promotion_rules_on_product_id"
   add_index "spree_products_promotion_rules", ["promotion_rule_id"], name: "index_products_promotion_rules_on_promotion_rule_id"
 
+  create_table "spree_products_stores", id: false, force: true do |t|
+    t.integer "product_id"
+    t.integer "store_id"
+  end
+
+  add_index "spree_products_stores", ["product_id"], name: "index_spree_products_stores_on_product_id"
+  add_index "spree_products_stores", ["store_id"], name: "index_spree_products_stores_on_store_id"
+
   create_table "spree_products_taxons", force: true do |t|
     t.integer "product_id"
     t.integer "taxon_id"
@@ -442,6 +472,11 @@ ActiveRecord::Schema.define(version: 20141008094375) do
   add_index "spree_promotion_rules", ["product_group_id"], name: "index_promotion_rules_on_product_group_id"
   add_index "spree_promotion_rules", ["promotion_id"], name: "index_spree_promotion_rules_on_promotion_id"
   add_index "spree_promotion_rules", ["user_id"], name: "index_promotion_rules_on_user_id"
+
+  create_table "spree_promotion_rules_stores", id: false, force: true do |t|
+    t.integer "promotion_rule_id"
+    t.integer "store_id"
+  end
 
   create_table "spree_promotion_rules_users", id: false, force: true do |t|
     t.integer "user_id"
@@ -688,6 +723,23 @@ ActiveRecord::Schema.define(version: 20141008094375) do
   add_index "spree_stock_transfers", ["number"], name: "index_spree_stock_transfers_on_number"
   add_index "spree_stock_transfers", ["source_location_id"], name: "index_spree_stock_transfers_on_source_location_id"
 
+  create_table "spree_store_payment_methods", force: true do |t|
+    t.integer  "store_id"
+    t.integer  "payment_method_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "spree_store_shipping_methods", force: true do |t|
+    t.integer  "store_id"
+    t.integer  "shipping_method_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "spree_store_shipping_methods", ["shipping_method_id"], name: "index_spree_store_shipping_methods_on_shipping_method_id"
+  add_index "spree_store_shipping_methods", ["store_id"], name: "index_spree_store_shipping_methods_on_store_id"
+
   create_table "spree_stores", force: true do |t|
     t.string   "name"
     t.string   "url"
@@ -700,6 +752,7 @@ ActiveRecord::Schema.define(version: 20141008094375) do
     t.boolean  "default",           default: false, null: false
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "logo_file_name"
   end
 
   add_index "spree_stores", ["code"], name: "index_spree_stores_on_code"
@@ -741,9 +794,11 @@ ActiveRecord::Schema.define(version: 20141008094375) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "position",   default: 0
+    t.integer  "store_id"
   end
 
   add_index "spree_taxonomies", ["position"], name: "index_spree_taxonomies_on_position"
+  add_index "spree_taxonomies", ["store_id"], name: "index_spree_taxonomies_on_store_id"
 
   create_table "spree_taxons", force: true do |t|
     t.integer  "parent_id"
@@ -787,6 +842,7 @@ ActiveRecord::Schema.define(version: 20141008094375) do
     t.boolean  "active",       default: true
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "store_id"
   end
 
   add_index "spree_trackers", ["active"], name: "index_spree_trackers_on_active"
