@@ -1,4 +1,5 @@
-== README  --- http://eangadi.herokuapp.com/admin
+#testing heroku deployment with semaphore_CI
+
 *email/username: admin@admin.com
 *password: password
 
