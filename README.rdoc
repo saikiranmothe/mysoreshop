@@ -1,4 +1,4 @@
-#testing heroku deployment with semaphore_CI
+testing heroku deployment with semaphore_CI
 
 *email/username: admin@admin.com
 *password: password
